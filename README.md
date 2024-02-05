@@ -36,6 +36,7 @@ conda activate geno
 # Usage & Example
 ---
 PCRmark to distinguish wild-type and synthetic sequences can be generated and verified by PCRmark_design.r:
+```
 $ Rscript PCRmarker_design.R -h
 usage: PCRmarker_design.R -g <Genome_file> -f <gff_file> -c <Cen_file> -n <Chr_number(INT)> -a <L/R> -t <thread> -m <tm_location> -o <output_path>
 Options:
@@ -50,7 +51,7 @@ Options:
 -h, --help  Show this help message and exit
 ```
 The genomic information of the Physcomitrium patens can be obtained from our recent work (https://doi.org/10.6084/m9.figshare.22975925.v1).
-```
+
 Example:
 ```
 Rscript PCRmarker_design.R -g Physcomitrium_patens_V4_genome.fasta -f Physcomitrium_patens_V4_rename.gff3 -c centromere.csv -n 16 -a L -t 20 -m ~/primer3/src/oligotm -o ~/synMoss_design/
