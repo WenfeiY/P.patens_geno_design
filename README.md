@@ -1,11 +1,12 @@
 # P.patens_geno_design
 Python and R scripts for genome design as a supplement to GenoDesigner (https://github.com/SynMoss/GenoDesigner) to mitigate GenoDesigner’s potential drawbacks like PCRmark design. These scripts can design PCRmarks for most genes and generate drafts of synthetic sequences of chromosome arms in a command-line manner. 
-The example directory contains example data for GenoDesigner and scripts provided here.
+
 # Installation
 ---
 1. Clone the repo
 ```
 git clone https://github.com/WenfeiY/P.patens_geno_design.git
+
 cd P.patens_geno_design
 ```
 2. Create Anaconda environment
@@ -15,16 +16,25 @@ conda env create -f environment.yml
 3. Install OligoArrayAux and primer3
 ```
 wget http://www.unafold.org/download/oligoarrayaux-3.8.1.tar.gz
+
 tar -zxvf oligoarrayaux-3.8.1.tar.gz
+
 sudo apt-get install -y build-essential g++ cmake git-all
+
 git clone https://github.com/primer3-org/primer3.git primer3
+
 cd primer3/src
+
 make
+
 make test
+
+git clone https://github.com/P.patens_geno_design
 ```
 4. Add PATH to .bashrc
 ```
 echo 'export PATH="<path_to_software>/oligoarrayaux-3.8.1/src:$PATH"' >> ~/.bashrc
+
 echo 'export PATH="<path_to_software>/primer3-2.6.1/src:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
@@ -35,9 +45,10 @@ conda activate geno
 ```
 # Usage & Example
 ---
-PCRmark to distinguish wild-type and synthetic sequences can be generated and verified by PCRmark_design.r:
+PCRmark to distinguish wild-type and synthetic sequences can be generated and verified by **PCRmark_design.r**:
 ```
 $ Rscript PCRmarker_design.R -h
+
 usage: PCRmarker_design.R -g <Genome_file> -f <gff_file> -c <Cen_file> -n <Chr_number(INT)> -a <L/R> -t <thread> -m <tm_location> -o <output_path>
 Options:
 -g GENOME_FILE, --genome_file=GENOME_FILE   genome file in fasta format
@@ -50,16 +61,19 @@ Options:
 -o OUTPUT_PATH, --output_path=OUTPUT_PATH   the output path for the generated PCRmark information
 -h, --help  Show this help message and exit
 ```
-The genomic information of the Physcomitrium patens can be obtained from our recent work (https://doi.org/10.6084/m9.figshare.22975925.v1).
+The genomic information of the Physcomitrium patens can be obtained from our recent work (https://doi.org/10.6084/m9.figshare.22975925.v4).
 
 Example:
 ```
+cd 
 Rscript PCRmarker_design.R -g Physcomitrium_patens_V4_genome.fasta -f Physcomitrium_patens_V4_rename.gff3 -c centromere.csv -n 16 -a L -t 20 -m ~/primer3/src/oligotm -o ~/synMoss_design/
 ```
 The output file Pp.Chr<chromosome_number><L/R>_PCRmark.txt contains information on designed wtPCRmarks and relevant synPCRmarks for each gene, see Pp.Chr16L_PCRmark.txt in the example directory.
+
+Python script **Pp.syn.generate.py** can be used to generate designed chromosome sequences. You can get usage by:
 ```
-Python script Pp.syn.generate.py can be used to generate designed chromosome sequences. You can get usage by:
 $ python Pp.syn.generate.py -u
+
 Usage: python Pp.syn.generate.py -g <Genbank_file_path> -n <Chr_number(INT)> -a <L/R> -p <PCRmark_file_path>
 Options and arguments:
 -g, --gb_file		chromosome genbank file
