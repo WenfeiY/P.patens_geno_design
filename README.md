@@ -48,7 +48,7 @@ PCRmark to distinguish wild-type and synthetic sequences can be generated and ve
 ```
 $ cd PCRmark_design/
 
-$ Rscript PCRmarker_design.R -h
+$ Rscript PCRmark_design.R -h
 
 usage: PCRmarker_design.R -g <Genome_file> -f <gff_file> -c <Cen_file> -n <Chr_number(INT)> -a <L/R> -t <thread> -m <tm_location> -o <output_path>
 Options:
@@ -68,7 +68,7 @@ Example:
 ```
 $ wget ............
 
-$ Rscript PCRmarker_design.R -g Physcomitrium_patens_V4_genome.fasta -f Physcomitrium_patens_V4_rename.gff3 -c centromere.csv -n 16 -a L -t 20 -m ~/primer3/src/oligotm -o ~/synMoss_design/
+$ Rscript PCRmark_design.R -g Physcomitrium_patens_V4_genome.fasta -f Physcomitrium_patens_V4_rename.gff3 -c centromere.csv -n 16 -a L -t 20 -m ~/primer3/src/oligotm -o ~/synMoss_design/
 ```
 The output file Pp.Chr<chromosome_number><L/R>_PCRmark.txt contains information on designed wtPCRmarks and relevant synPCRmarks for each gene, see Pp.Chr16L_PCRmark.txt in the example directory.
 
