@@ -1,12 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Dec 18 17:36:39 2023
-
-@author: Sam_Y
-"""
-
-# -*- coding: utf-8 -*-
-"""
 Author: Wenfei Yu
 Description: This python script is bound for generation of synthetic genomic sequences for synMoss
 Note: require 4 input arguments: path of chromosome arm genbank file; chromosome number; chromosome arm (L or R), path of PCRmark information file
